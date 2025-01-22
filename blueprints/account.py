@@ -61,8 +61,8 @@ def ViewRequestsAsRequester(user_id):
     return render_template('user_requests.html', requests=requests)
 
 # View bookings for spaces user has booked
-@account.route('/<int:user_id>/bookings', methods = ['GET'])
-def ViewBookingsAsRequester(user_id):
-    bookings = BookingModel.query.filter_by(user_id=user_id).all()
+@account.route('/<int:requester_id>/bookings', methods = ['GET'])
+def ViewBookingsAsRequester(requester_id):
+    bookings = BookingModel.query.filter_by(requester_id = requester_id).all()
     return render_template('user_bookings.html', bookings=bookings)
 
